@@ -114,5 +114,38 @@ public class ScoutAgent extends ImasAgent {
     public GameSettings getGame() {
         return this.game;
     }
+    
+    /* ********************************************************************** */
+    /**
+     * Gets the current row.
+     *
+     * @return the current row number in the map, in zero base.
+     */
+    public int getRow() {
+        return this.row;
+    }
+
+    /**
+     * Gets the current column number in the map, in zero base.
+     *
+     * @return Column number in the map, in zero base.
+     */
+    public int getCol() {
+        return this.col;
+    }
+
+    /* ********************************************************************** */
+    /**
+     * Gets a string representation of the cell.
+     *
+     * @return
+     */
+    @Override
+    public String toString() {
+        String str = "(Agent-name " + this.getAID() + " "
+                + "(r " + this.getRow() + ")"
+                + "(c " + this.getCol() + ")";
+        return str + ")";
+    }
 
 }
