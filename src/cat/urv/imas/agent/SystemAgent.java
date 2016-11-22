@@ -139,6 +139,9 @@ public class SystemAgent extends ImasAgent {
         searchCriterion.setType(AgentType.COORDINATOR.toString());
         this.coordinatorAgent = UtilsAgents.searchAgent(this, searchCriterion);
         // searchAgent is a blocking method, so we will obtain always a correct AID
+        
+        //4. Generate All Agents
+        
 
         // add behaviours
         // we wait for the initialization of the game
