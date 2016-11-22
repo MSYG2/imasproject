@@ -44,11 +44,11 @@ public class HarvesterAgent extends ImasAgent {
      */
     private AID harvesterPaperCoordinatorAgent;
     /**
-     * Harvester Paper Coordinator agent id.
+     * Harvester Glass Coordinator agent id.
      */
     private AID harvesterGlassCoordinatorAgent;
     /**
-     * Harvester Paper Coordinator agent id.
+     * Harvester Plastic Coordinator agent id.
      */
     private AID harvesterPlasticCoordinatorAgent;
     /**
