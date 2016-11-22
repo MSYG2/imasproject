@@ -39,9 +39,26 @@ public class HarvesterAgent extends ImasAgent {
      */
     private GameSettings game;
     /**
-     * System agent id.
+     * Harvester Paper Coordinator agent id.
      */
-    private AID systemAgent;
+    private AID harvesterPaperCoordinatorAgent;
+    /**
+     * Harvester Paper Coordinator agent id.
+     */
+    private AID harvesterGlassCoordinatorAgent;
+    /**
+     * Harvester Paper Coordinator agent id.
+     */
+    private AID harvesterPlasticCoordinatorAgent;
+    /**
+     * Row number for this agent, zero based.
+     */
+    private int row = -1;
+    /**
+     * Column number for this agent, zero based.
+     */
+    private int col = -1;
+    
 
     /**
      * Builds the harvester agent.
@@ -78,8 +95,23 @@ public class HarvesterAgent extends ImasAgent {
             doDelete();
         }
         
-        //more setup
+        // search Harvester Paper Coordinator Agent
+        ServiceDescription searchCriterion = new ServiceDescription();
+        searchCriterion.setType(AgentType.HARVESTER_PAPER_COORDINATOR.toString());
+        this.harvesterPaperCoordinatorAgent = UtilsAgents.searchAgent(this, searchCriterion);
+        // searchAgent is a blocking method, so we will obtain always a correct AID
         
+        // search Harvester Paper Coordinator Agent
+        searchCriterion = new ServiceDescription();
+        searchCriterion.setType(AgentType.HARVESTER_GLASS_COORDINATOR.toString());
+        this.harvesterGlassCoordinatorAgent = UtilsAgents.searchAgent(this, searchCriterion);
+        // searchAgent is a blocking method, so we will obtain always a correct AID
+        
+        // search Harvester Plastic Coordinator Agent
+        searchCriterion = new ServiceDescription();
+        searchCriterion.setType(AgentType.HARVESTER_PLASTIC_COORDINATOR.toString());
+        this.harvesterPlasticCoordinatorAgent = UtilsAgents.searchAgent(this, searchCriterion);
+        // searchAgent is a blocking method, so we will obtain always a correct AID
     }
 
     /**
@@ -98,6 +130,39 @@ public class HarvesterAgent extends ImasAgent {
      */
     public GameSettings getGame() {
         return this.game;
+    }
+    
+    /* ********************************************************************** */
+    /**
+     * Gets the current row.
+     *
+     * @return the current row number in the map, in zero base.
+     */
+    public int getRow() {
+        return this.row;
+    }
+
+    /**
+     * Gets the current column number in the map, in zero base.
+     *
+     * @return Column number in the map, in zero base.
+     */
+    public int getCol() {
+        return this.col;
+    }
+
+    /* ********************************************************************** */
+    /**
+     * Gets a string representation of the cell.
+     *
+     * @return
+     */
+    @Override
+    public String toString() {
+        String str = "(Agent-name " + this.getAID() + " "
+                + "(r " + this.getRow() + ")"
+                + "(c " + this.getCol() + ")";
+        return str + ")";
     }
 
 }
