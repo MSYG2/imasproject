@@ -39,9 +39,9 @@ public class ScoutAgent extends ImasAgent {
      */
     private GameSettings game;
     /**
-     * System agent id.
+     * Scout Coordinator agent id.
      */
-    private AID systemAgent;
+    private AID scoutCoordinatorAgent;
 
     /**
      * Builds the scout agent.
@@ -78,7 +78,11 @@ public class ScoutAgent extends ImasAgent {
             doDelete();
         }
         
-        //more setup
+        // search Scout Coordinator Agent
+        ServiceDescription searchCriterion = new ServiceDescription();
+        searchCriterion.setType(AgentType.HARVESTER_COORDINATOR.toString());
+        this.scooutCoordinatorAgent = UtilsAgents.searchAgent(this, searchCriterion);
+        // searchAgent is a blocking method, so we will obtain always a correct AID
         
     }
 
