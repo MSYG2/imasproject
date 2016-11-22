@@ -20,6 +20,7 @@ package cat.urv.imas.agent;
 import static cat.urv.imas.agent.ImasAgent.OWNER;
 import cat.urv.imas.onthology.GameSettings;
 import cat.urv.imas.behaviour.coordinator.RequesterBehaviour;
+import cat.urv.imas.map.CellType;
 import cat.urv.imas.onthology.MessageContent;
 import jade.core.*;
 import jade.domain.*;
@@ -42,12 +43,22 @@ public class ScoutAgent extends ImasAgent {
      * Scout Coordinator agent id.
      */
     private AID scoutCoordinatorAgent;
+    /**
+     * Row number for this agent, zero based.
+     */
+    private int row = -1;
+    /**
+     * Column number for this agent, zero based.
+     */
+    private int col = -1;
 
     /**
      * Builds the scout agent.
      */
-    public ScoutAgent() {
+    public ScoutAgent(int row, int col) {
         super(AgentType.SCOUT);
+        this.row = row;
+        this.col = col;
     }
 
     /**
