@@ -20,6 +20,7 @@ package cat.urv.imas.agent;
 import static cat.urv.imas.agent.ImasAgent.OWNER;
 import cat.urv.imas.onthology.GameSettings;
 import cat.urv.imas.behaviour.coordinator.RequesterBehaviour;
+import cat.urv.imas.onthology.GarbageType;
 import cat.urv.imas.onthology.MessageContent;
 import jade.core.*;
 import jade.domain.*;
@@ -58,13 +59,25 @@ public class HarvesterAgent extends ImasAgent {
      * Column number for this agent, zero based.
      */
     private int col = -1;
+    /**
+     * Types of garbage allowed to harvest.
+     */
+    protected GarbageType[] allowedTypes;
+    /**
+     * Maximum units of garbage of any type able to harvest at a time.
+     */
+    protected int capacity;
     
 
     /**
      * Builds the harvester agent.
      */
-    public HarvesterAgent() {
+    public HarvesterAgent(int row, int col, int capacity, GarbageType[] allowedTypes) {
         super(AgentType.HARVESTER);
+        this.row = row;
+        this.col = col;
+        this.capacity = capacity;
+        this.allowedTypes = allowedTypes;
     }
 
     /**
