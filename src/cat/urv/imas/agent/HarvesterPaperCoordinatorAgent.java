@@ -78,7 +78,7 @@ public class HarvesterPaperCoordinatorAgent extends ImasAgent {
             doDelete();
         }
         
-        // search SystemAgent
+        // search Harvester Coordinator Agent
         ServiceDescription searchCriterion = new ServiceDescription();
         searchCriterion.setType(AgentType.HARVESTER_COORDINATOR.toString());
         this.harvesterCoordinatorAgent = UtilsAgents.searchAgent(this, searchCriterion);
