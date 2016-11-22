@@ -39,7 +39,7 @@ public class ScoutCoordinatorAgent extends ImasAgent {
      */
     private GameSettings game;
     /**
-     * CoordinatorAgent agent id.
+     * Coordinator agent id.
      */
     private AID coordinatorAgent;
 
