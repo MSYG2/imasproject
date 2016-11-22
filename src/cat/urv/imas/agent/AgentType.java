@@ -45,6 +45,24 @@ public enum AgentType {
             return "HC";
         }
     },
+    HARVESTER_PAPER_COORDINATOR {
+        @Override
+        public String getShortString() {
+            return "HPC";
+        }
+    },
+    HARVESTER_GLASS_COORDINATOR {
+        @Override
+        public String getShortString() {
+            return "HGC";
+        }
+    },
+    HARVESTER_PLASTIC_COORDINATOR {
+        @Override
+        public String getShortString() {
+            return "HLC";
+        }
+    },
     COORDINATOR {
         @Override
         public String getShortString() {
