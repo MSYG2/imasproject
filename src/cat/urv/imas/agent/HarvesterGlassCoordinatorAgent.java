@@ -47,7 +47,7 @@ public class HarvesterGlassCoordinatorAgent extends ImasAgent {
      * Builds the harvester glass coordinator agent.
      */
     public HarvesterGlassCoordinatorAgent() {
-        super(AgentType.HARVESTER_PAPER_COORDINATOR);
+        super(AgentType.HARVESTER_GLASS_COORDINATOR);
     }
 
     /**
