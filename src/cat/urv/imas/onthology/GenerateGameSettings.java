@@ -168,5 +168,4 @@ public class GenerateGameSettings {
             e.printStackTrace();
         }
     }
-
 }
