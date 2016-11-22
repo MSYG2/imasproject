@@ -39,9 +39,9 @@ public class HarvesterPlasticCoordinatorAgent extends ImasAgent {
      */
     private GameSettings game;
     /**
-     * System agent id.
+     * Harvester Coordinator agent id.
      */
-    private AID systemAgent;
+    private AID harvesterCoordinatorAgent;
 
     /**
      * Builds the harvester plastic coordinator agent.
@@ -78,7 +78,12 @@ public class HarvesterPlasticCoordinatorAgent extends ImasAgent {
             doDelete();
         }
         
-        //more setup
+        // search Harvester Coordinator Agent
+        ServiceDescription searchCriterion = new ServiceDescription();
+        searchCriterion.setType(AgentType.HARVESTER_COORDINATOR.toString());
+        this.harvesterCoordinatorAgent = UtilsAgents.searchAgent(this, searchCriterion);
+        // searchAgent is a blocking method, so we will obtain always a correct AID
+
         
     }
 
