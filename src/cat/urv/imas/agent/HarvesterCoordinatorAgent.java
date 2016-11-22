@@ -28,8 +28,8 @@ import jade.lang.acl.*;
 
 /**
  * The Harvester Coordinator agent. 
- * TODO: This agent can comunicate with the ScoutCoordinator and the HarvesterCoordinator,
- * providing them the information given by the SystemAgent.
+ * TODO: Coordinating Harvester Paper Agents, Harvester Glass 
+ * Agent and HarvesterPlastic Agent, and communicate with Coordinator Agent.
  */
 public class HarvesterCoordinatorAgent extends ImasAgent {
 
