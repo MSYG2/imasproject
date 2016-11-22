@@ -76,6 +76,9 @@ public class HarvesterCoordinatorAgent extends ImasAgent {
             System.err.println(getLocalName() + " registration with DF unsucceeded. Reason: " + e.getMessage());
             doDelete();
         }
+        
+        //more setup
+        
     }
 
     /**
