@@ -163,6 +163,27 @@ public class HarvesterAgent extends ImasAgent {
     public int getCol() {
         return this.col;
     }
+    
+    /**
+     * Gets capacity for harvester.
+     *
+     * @return harvester capacity.
+     */
+    public int getCapacity() {
+        return this.capacity;
+    }
+    
+    /**
+     * check if Garbage Type Allowed.
+     *
+     * @return true if type is allowed or return false if not.
+     */
+    public boolean isAllowedType(GarbageType type){
+        for(int i = 0;i < allowedTypes.length;i++)
+            if(allowedTypes[i] == type)
+                return true;
+        return false;
+    }
 
     /* ********************************************************************** */
     /**
@@ -174,7 +195,8 @@ public class HarvesterAgent extends ImasAgent {
     public String toString() {
         String str = "(Agent-name " + this.getAID() + " "
                 + "(r " + this.getRow() + ")"
-                + "(c " + this.getCol() + ")";
+                + "(c " + this.getCol() + ")" 
+                + " Agent Capacity: " + getCapacity();
         return str + ")";
     }
 
