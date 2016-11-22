@@ -141,7 +141,7 @@ public class SystemAgent extends ImasAgent {
         // searchAgent is a blocking method, so we will obtain always a correct AID
         
         //4. Generate All Agents
-        
+        // create and store AID for every agents
 
         // add behaviours
         // we wait for the initialization of the game
