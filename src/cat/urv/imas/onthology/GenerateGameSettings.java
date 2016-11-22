@@ -96,19 +96,7 @@ public class GenerateGameSettings {
 
         defineSettings(settings);
         storeSettings(settings);
-        //testSettings();
-        try {
-            settings = (InitialGameSettings)InitialGameSettings.load(FILENAME);
-            if (settings.getSimulationSteps() != STEPS) {
-                throw new Exception("Something went wrong, we loaded some different to what we stored.");
-            }
-            GraphicInterface frame = new GraphicInterface(settings);
-            frame.setVisible(true);
-            System.out.println("Settings loaded again. Ok!");
-        } catch (Exception e) {
-            System.err.println("Settings could not be loaded!");
-            e.printStackTrace();
-        }
+        testSettings();
     }
 
     /**
