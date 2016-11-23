@@ -160,16 +160,18 @@ public class SystemAgent extends ImasAgent {
         Cell[][] map = this.game.getMap();
         int hcount = 1;
         int scount = 1;
+        Object[] arguments = null;
         for(int r = 0;r < map.length;r++)
             for(int c = 0;c < map[r].length;c++)
                 if(map[r][c] instanceof StreetCell && ((StreetCell)map[r][c]).isThereAnAgent()){
                     InfoAgent info = ((StreetCell)map[r][c]).getAgent();
                     if(info.getType() == AgentType.SCOUT){
-                        Object[] arguments = new Object[]{r, c};
-                        UtilsAgents.createAgent(this.getContainerController(),"scout"+(scount++), "cat.urv.imas.agent.ScoutAgent", null);
+                        arguments = new Object[]{r, c};
+                        UtilsAgents.createAgent(this.getContainerController(),"scout"+(scount++), "cat.urv.imas.agent.ScoutAgent", arguments);
                     }
                     else if(info.getType() == AgentType.HARVESTER){
-                        UtilsAgents.createAgent(this.getContainerController(),"harve"+(hcount++), "cat.urv.imas.agent.HarvesterAgent", null);
+                        arguments = new Object[]{r, c, ((HarvesterInfoAgent)info).getCapacity(), ((HarvesterInfoAgent)info).getAllowedType()};
+                        UtilsAgents.createAgent(this.getContainerController(),"harve"+(hcount++), "cat.urv.imas.agent.HarvesterAgent", arguments);
                     }
                 }
         
