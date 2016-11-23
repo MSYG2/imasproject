@@ -63,7 +63,7 @@ public class HarvesterGlassCoordinatorAgent extends ImasAgent {
 
         // Register the agent to the DF
         ServiceDescription sd1 = new ServiceDescription();
-        sd1.setType(AgentType.HARVESTER_COORDINATOR.toString());
+        sd1.setType(AgentType.HARVESTER_GLASS_COORDINATOR.toString());
         sd1.setName(getLocalName());
         sd1.setOwnership(OWNER);
         
