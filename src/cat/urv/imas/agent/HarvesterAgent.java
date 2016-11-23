@@ -75,6 +75,17 @@ public class HarvesterAgent extends ImasAgent {
         super(AgentType.HARVESTER);
     }
     
+    /**
+     * Builds the harvester agent.
+     */
+    public HarvesterAgent(Object[] arguments) {
+        super(AgentType.HARVESTER);
+        this.row = Integer.parseInt(arguments[0].toString());
+        this.col = Integer.parseInt(arguments[1].toString());
+        this.capacity = Integer.parseInt(arguments[2].toString());
+        this.allowedTypes = (GarbageType[])arguments[3];
+    }
+    
 
     /**
      * Builds the harvester agent.
