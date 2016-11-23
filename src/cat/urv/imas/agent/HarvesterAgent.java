@@ -68,6 +68,13 @@ public class HarvesterAgent extends ImasAgent {
      */
     protected int capacity;
     
+    /**
+     * Builds the harvester agent.
+     */
+    public HarvesterAgent(){
+        super(AgentType.HARVESTER);
+    }
+    
 
     /**
      * Builds the harvester agent.
