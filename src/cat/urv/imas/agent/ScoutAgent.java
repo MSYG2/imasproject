@@ -51,6 +51,13 @@ public class ScoutAgent extends ImasAgent {
      * Column number for this agent, zero based.
      */
     private int col = -1;
+    
+    /**
+     * Builds the scout agent.
+     */
+    public ScoutAgent() {
+        super(AgentType.SCOUT);
+    }
 
     /**
      * Builds the scout agent.
