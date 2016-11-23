@@ -21,6 +21,11 @@ import cat.urv.imas.onthology.InitialGameSettings;
 import cat.urv.imas.onthology.GameSettings;
 import cat.urv.imas.gui.GraphicInterface;
 import cat.urv.imas.behaviour.system.RequestResponseBehaviour;
+import cat.urv.imas.map.Cell;
+import cat.urv.imas.map.StreetCell;
+import cat.urv.imas.onthology.HarvesterInfoAgent;
+import cat.urv.imas.onthology.InfoAgent;
+import static com.sun.org.apache.xerces.internal.util.FeatureState.is;
 import jade.core.*;
 import jade.domain.*;
 import jade.domain.FIPAAgentManagement.*;
@@ -141,8 +146,33 @@ public class SystemAgent extends ImasAgent {
         // searchAgent is a blocking method, so we will obtain always a correct AID
         
         //4. Generate All Agents
-        // create and store AID for every agents
-
+        //create harvester coordinator agent
+        UtilsAgents.createAgent(this.getContainerController(),"harvecoord", "cat.urv.imas.agent.HarvesterCoordinatorAgent", null);
+        //create harvester paper coordinator agent
+        UtilsAgents.createAgent(this.getContainerController(),"papercoord", "cat.urv.imas.agent.HarvesterPaperCoordinatorAgent", null);
+        //create harvester glass coordinator agent 
+        UtilsAgents.createAgent(this.getContainerController(),"glasscoord", "cat.urv.imas.agent.HarvesterGlassCoordinatorAgent", null);
+        //create harvester plastic coordinator agent
+        UtilsAgents.createAgent(this.getContainerController(),"plasticcoord", "cat.urv.imas.agent.HarvesterPlasticCoordinatorAgent", null);
+        //create scout coordinator agent
+        UtilsAgents.createAgent(this.getContainerController(),"scoutcoord", "cat.urv.imas.agent.ScoutCoordinatorAgent", null);
+        //create scouts and harvesters
+        Cell[][] map = this.game.getMap();
+        int hcount = 1;
+        int scount = 1;
+        for(int r = 0;r < map.length;r++)
+            for(int c = 0;c < map[r].length;c++)
+                if(map[r][c] instanceof StreetCell && ((StreetCell)map[r][c]).isThereAnAgent()){
+                    InfoAgent info = ((StreetCell)map[r][c]).getAgent();
+                    if(info.getType() == AgentType.SCOUT){
+                        Object[] arguments = new Object[]{r, c};
+                        UtilsAgents.createAgent(this.getContainerController(),"scout"+(scount++), "cat.urv.imas.agent.ScoutAgent", null);
+                    }
+                    else if(info.getType() == AgentType.HARVESTER){
+                        UtilsAgents.createAgent(this.getContainerController(),"harve"+(hcount++), "cat.urv.imas.agent.HarvesterAgent", null);
+                    }
+                }
+        
         // add behaviours
         // we wait for the initialization of the game
         MessageTemplate mt = MessageTemplate.and(MessageTemplate.MatchProtocol(InteractionProtocol.FIPA_REQUEST), MessageTemplate.MatchPerformative(ACLMessage.REQUEST));
