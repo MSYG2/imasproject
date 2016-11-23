@@ -58,6 +58,15 @@ public class ScoutAgent extends ImasAgent {
     public ScoutAgent() {
         super(AgentType.SCOUT);
     }
+    
+    /**
+     * Builds the scout agent.
+     */
+    public ScoutAgent(Object[] arguments) {
+        super(AgentType.SCOUT);
+        this.row = Integer.parseInt(arguments[0].toString());
+        this.col = Integer.parseInt(arguments[1].toString());
+    }
 
     /**
      * Builds the scout agent.
