@@ -55,6 +55,24 @@ public class HarvesterInfoAgent extends InfoAgent {
     }
     
     /**
+     * Gets capacity for harvester.
+     *
+     * @return harvester capacity.
+     */
+    public int getCapacity() {
+        return this.capacity;
+    }
+    
+    /**
+     * get Garbage Type Allowed.
+     *
+     * @return array of allowed garbages.
+     */
+    public GarbageType[] getAllowedType(){
+        return this.allowedTypes;
+    }
+    
+    /**
      * String representation of this isntance.
      *
      * @return string representation.
